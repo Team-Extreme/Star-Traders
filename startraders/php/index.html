@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Traders</title>
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" type="image/x-icon" href="../images/star_favicon.png"/>
+
+	</head>
+<body>
+    <audio id="myAudio">
+  <source src="rsm.mp3" type="audio/mpeg">
+</audio>
+<main>
+<div class="wrap">
+  <div>
+  <span><button onclick="playAudio()" type="button">Play Audio</button>
+	<button onclick="pauseAudio()" type="button">Pause Audio</button></span>
+
+  </div>
+    <div><p class="clockcont">Spacetime:<pv id="MyClockDisplay" class="clock"></pv></p></div>
+</div>
+    <div id="container">
+        <img class="main_logo" src="../images/star_traders_no_bg.png" alt="woops">
+    <div class="loginform">
+        <form method="post" action="../process/login_process.php">
+            <ul class="flex-outer">
+  			   <li>
+                <label for="username">USERNAME:</label>
+  			    <input type="text" name="username" value="USERNAME" required>
+               </li>
+  			
+			   <li>
+                 <label for="password">PASSWORD:</label>
+			     <input type="password" name="password" value="USERNAME" required>
+               </li>
+                
+               <li>
+                <input type="SUBMIT" value="SUBMIT">
+                <button type="submit" formaction="../php/register.html">REGISTER</button>
+               </li>
+            </ul>
+        </form>
+    </div>
+</div>
+</main>
+<div id='stars'></div>
+<div id='stars2'></div>
+<div id='stars3'></div>
+</body>
+<script src="../js/clock.js"></script>
+<script>
+var x = document.getElementById("myAudio"); 
+
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+</script>
+<script>
+var close = document.getElementsByClassName("closebtn");
+var i;
+
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function(){
+    var div = this.parentElement;
+    div.style.opacity = "0";
+    setTimeout(function(){ div.style.display = "none"; }, 600);
+  }
+}
+</script>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star Traders</title>
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<main>
+<div id="container">
+    <img class="main_logo" src="../images/star_traders_no_bg.png" alt="woops">
+    <div class="loginform">
+        <form method="post" action="../process/register_process.php">
+            
+            <ul class="flex-outer">
+  			   <li>
+                <label for="username">USERNAME:</label>
+  			    <input type="text" name="username"  required>
+               </li><li>
+                <label for="password">Password:</label>
+                <input type="password" name="password1" id="password1" oninput="setPasswordConfirmValidity();" required>
+                <li>
+                <label for="confim_password">Confirm Password:</label>
+                <input type="password" id="password2" oninput="setPasswordConfirmValidity();" required>
+                </li>
+                <li>
+                <label for="email">EMAIL:</label>
+  			    <input type="email" name="email" value="EMAIL" required>
+                </li>
+				                <li>
+                <label for="email">SHIP NAME:</label>
+  			    <input type="shipname" name="shipname" value="" required>
+                </li>
+
+               <li>
+                <input type="SUBMIT" value="SUBMIT">
+               </li>
+            </ul>
+                
+
+        </form>
+
+    </div>
+</div>
+    </main>
+</body>
+    <script>
+    function setPasswordConfirmValidity(str) {
+        const password1 = document.getElementById('password1');
+        const password2 = document.getElementById('password2');
+
+        if (password1.value === password2.value) {
+             password2.setCustomValidity('');
+        } else {
+            password2.setCustomValidity('Passwords must match');
+        }
+        console.log('password2 customError ', document.getElementById('password2').validity.customError);
+        console.log('password2 validationMessage ', document.getElementById('password2').validationMessage);
+    }
+</script>
+</html>
