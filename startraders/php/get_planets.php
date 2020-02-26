@@ -61,7 +61,9 @@
             echo $rows['planet_id'];
             echo '">JUMP</a>';
             echo '<br>';
+                echo '<font size="1">';
             echo $rows['planet_description'];
+                echo'</font>';
             echo '</p>';
             echo '\'); ';
 						}
