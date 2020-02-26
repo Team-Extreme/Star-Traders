@@ -17,27 +17,34 @@
         $star_x=120;
         $star_y=120;
         $star_class = $star_classification_array[$randIndex];
-          $sql = "INSERT INTO univ_star(system_id,star_name,star_x,star_y,star_class) VALUES ('$system_id','$system_name','$star_x','$star_y','$star_class')";
-            $conn->query($sql);
+        $sql = "INSERT INTO univ_star(system_id,star_name,star_x,star_y,star_class) VALUES ('$system_id','$system_name','$star_x','$star_y','$star_class')";
+        $conn->query($sql);
             
-
-				$sql = "INSERT INTO univ_system (system_id,system_name,system_x,system_y,system_description,system_security) VALUES ('$system_id','$system_name','$system_x','$system_y','$system_description','$system_security')";
-				$conn->query($sql);
+            $sql = "INSERT INTO univ_system (system_id,system_name,system_x,system_y,system_description,system_security) VALUES ('$system_id','$system_name','$system_x','$system_y','$system_description','$system_security')";
+            $conn->query($sql);
             $num_planet=1;
             echo $system_id,$system_name,$system_x,$system_y,$system_description;
             $number=rand(1,9);
             $num_planet=1;
             for ($n = 0; $n <= $number; $n++) {
+            
             $num_planet_name=$num_planet++;
             $planet_name = $system_name;
             $planet_name_final=$planet_name." ".$num_planet_name;
             $planet_x =rand(10,240);
             $planet_y =rand(10,240);
-            $planet_description= "This is a Planet";
 
+                
+            $j = ( pow(120-$planet_x,2));
+			$y = ( pow(120-$planet_y,2));
+			$distance = ( sqrt($j + $y) );
+			$roundto2places = round($distance,2);
+            $star_distance = round($distance,2)/10;
+            $star_distance = $star_distance/2;
+            $planet_description= ''.$planet_name_final.' is '.$star_distance.' AU away from its star';
             $sql = "INSERT INTO univ_planet (system_id,planet_name,planet_x,planet_y,planet_description) VALUES ('$system_id','$planet_name_final','$planet_x','$planet_y','$planet_description')";
             $conn->query($sql);
-                echo $planet_name_final;
+            echo $planet_name_final;
 
 }
 }
