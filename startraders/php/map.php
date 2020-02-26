@@ -83,11 +83,21 @@
         iconSize:     [15, 15], 
         popupAnchor:  [-10, -10]
     }
+        
+
+});
+            var LocalStarIcon = L.Icon.extend({
+    options: {
+        iconSize:     [15, 15], 
+        popupAnchor:  [-10, -10]
+    }
+        
 
 });
 // This tells the script which icon to use for which map marker there may have been a way to include this in the initial variable declaration but everytime i tried it broke.
     var starIcon = new StarIcon({iconUrl: '../images/marker-icon.png'});
   var playerIcon = new playerIcon({iconUrl: '../images/marker-location-icon.png'});
+          var localstarIcon = new LocalStarIcon({iconUrl: '../images/marker-star-icon.png'});
 
 
 // The code below allows me to use x,y coords instead of the latlng that is the default for leaflet this is a direct rip from a tutorial i read because math and it allowed me to define coords much easier in the php 

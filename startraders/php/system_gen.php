@@ -12,6 +12,13 @@
         $system_id=$num++;
         $system_name=$system_array[$system_id];
 		$system_security=rand(1,10);
+        $star_x=120;
+        $star_y=120;
+        $star_class =rand(1,5);
+            
+          $sql = "INSERT INTO univ_star(system_id,star_name,star_x,star_y,star_class) VALUES ('$system_id','$system_name','$star_x','$star_y','$star_class')";
+				echo  $sql;
+            $conn->query($sql);
             
 
 				$sql = "INSERT INTO univ_system (system_id,system_name,system_x,system_y,system_description,system_security) VALUES ('$system_id','$system_name','$system_x','$system_y','$system_description','$system_security')";
