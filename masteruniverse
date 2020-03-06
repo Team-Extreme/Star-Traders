@@ -151,10 +151,10 @@ CREATE TABLE IF NOT EXISTS `univ_star` (
   `star_x` int(255) NOT NULL,
   `star_y` int(255) NOT NULL,
   `star_class` varchar(1) NOT NULL,
-  `star_mass` decimal(65,0) DEFAULT NULL,
+  `star_mass` decimal(10,2) DEFAULT NULL,
   `star_temperature` int(128) DEFAULT NULL,
-  `star_radius` decimal(65,0) DEFAULT NULL,
-  `star_lumo` decimal(65,0) DEFAULT NULL,
+  `star_radius` decimal(10,2) DEFAULT NULL,
+  `star_lumo` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`star_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
 
