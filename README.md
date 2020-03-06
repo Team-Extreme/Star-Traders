@@ -1,3 +1,5 @@
 # star-traders
 
-If you run the universe.sql file in workbench it will populate the data by dragging the folder into your shared drive also that should give you a copy of the game to work with
+To start working on the project, download the masteruniverse.sql file and run it locally.
+
+Then head to php/system_gen to run a php populating script for the tables in the database
