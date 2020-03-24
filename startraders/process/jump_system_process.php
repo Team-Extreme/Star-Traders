@@ -28,7 +28,7 @@
 		
 		$ship_fuel =$sql_array["ship_fuel"];
         if ($ship_fuel >= $fuel_cost){
-            $ship_fuel_update= $ship_fuel - $fuel_cost
+            $ship_fuel_update= $ship_fuel - $fuel_cost;
         $sql = "UPDATE user_table SET user_location ='".$_GET['system_id']."' WHERE user_id='".$_SESSION['user_id']."'";
 
         $results =$conn->query($sql);
