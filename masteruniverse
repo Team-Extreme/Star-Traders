@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `univ_planet_type` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `system_message`
+-- Dumping data for table `univ_planet_type`
 --
 
 INSERT INTO `univ_planet_type` (`type_id`, `type_name`, `type_description`) VALUES
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `univ_item` (
 -- Dumping data for table `univ_item`
 --
 
-INSERT INTO `univ_item` (`item_id`, `item_name`, `item_description`, `item_type`, `item_rarity`) VALUES
+INSERT INTO `univ_item` (`item_id`, `item_name`, `item_description`, `item_type`, `item_rarity`, `item_base_price`) VALUES
 (1, 'Potatoes', 'What\'s tatters Precious,Boil\'em Mash\'em Stick\'em in a Stew!', 'Food', 1, 5),
 (2, 'Hope', 'At Last We have it, Anything is possible!', 'Hope', 5, 300),
 (3, 'Stink Bomb', 'Yuk!', 'Arms', 4, 50),
