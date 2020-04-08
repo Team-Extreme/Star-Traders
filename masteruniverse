@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `univ_planet_type` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `univ_planet_type`
+-- Dumping data for table `system_message`
 --
 
 INSERT INTO `univ_planet_type` (`type_id`, `type_name`, `type_description`) VALUES
@@ -48,8 +48,8 @@ INSERT INTO `univ_planet_type` (`type_id`, `type_name`, `type_description`) VALU
 (5, 'Ice Planet', 'A theoretical planet with an icy surface and consists of a global cryosphere.'),
 (6, 'Lava Planet', 'A theoretical terrestrial planet with a surface mostly or entirely covered by molten lava.'),
 (7, 'Ocean Planet', 'A theoretical planet which has a substantial fraction of its mass made of water.'),
-(8, 'Protoplanet', 'A large planetary embryo that originates within protoplanetary discs and has undergone internal melting to produce differentiated interiors. Protoplanets are believed to form out of kilometer-sized planetesimals that attract each other gravitationally and collide.'),
-(9, 'Silicate Planet', 'A terrestrial planet that is composed primarily of silicate rocks. All four inner planets in our Solar System are silicon-based.'),
+(8, 'Protoplanet', 'A large planetary embryo that originates within protoplanetary discs and has undergone internal melting to produce differentiated interiors.'),
+(9, 'Silicate Planet', 'A terrestrial planet that is composed primarily of silicate rocks.'),
 (10, 'Terrestrial Planet', 'An Earth-like planet.');
 
 -- --------------------------------------------------------
