@@ -26,22 +26,33 @@
     <div><a href="../process/logout_process.php">LOGOUT</a></div>
 </div>
     <div id="container">
-
+           <div class="glaxaxytradenews"><h1>Galaxy Trade News<font size= 1px color=#17D4FE>(Updated Every 15 Minutes)</font></h1><marquee direction="right" scrollamount="3">---<b><font color=#leff00>Ice Demand Up in Caudron</font>---<font color=#870000>Ice demand Down In TIGAR</font>---<font color=#870000>H20 demand down in Hel</b></font>---</marquee></div>
 
               <div class="custom-popup" id="map"></div>
 
 
     </div>
-    <div class="rightstack"><div class="errmessage"><?php include'../process/message_check_process.php'?></div><div class="custom-popup" id="local_map"></div></div>
-       <div class="transaction_left"><h1>Transactions</h1><?php require'../process/get_transactions.php'?></div> 
+	<div class="rightstack"><div class="errmessage"><?php include'../process/message_check_process.php'?></div><div class="custom-popup" id="local_map"></div></div>
+       <div class="transaction_left"><h1>Transactions</h1><?php require'../process/get_transactions.php'?></div>
+	   <div class="planetint"><h1>Location</h1><?php require'../process/get_location_info.php'?> <div class="internal_cont1">Interactions</div></div> 
     <div class="cargoleft"><h1>Cargo</h1><?php require'../process/get_cargo.php'?></div> <div class="left-ui"><div class="internal_cont"><h1>USER</h1><?php require'../process/get_user.php'?></div><div class="internal_right_cont"><h1>SHIP</h1><?php require'../process/get_ship.php'?></div></div>
-    <div class="center-ui">  
-  <a href=""><img class="image_contain" src="../images/refuel.png"></a>
-  <a href=""><img class="image_contain"src="../images/market.png"></a>
-   <a href="map.php"> <img class="image_contain" src="../images/map_view.png"></a>
-  <a href="view_planet.php"><img class="image_contain"src="../images/planet_view.png"></a>
+    <div class="center-ui">  </br>
+       <h1>      &nbsp;MARKET <?php require'../process/get_user_location.php'?></h1></br>
+<div class= scrollbar id=style-4>
+<section>
+<div class=row>
+<div class=col><font color=#17D4FE>Item </br>Name</font></div>
+<div class=col><font color=#17D4FE>Current Stock</font></div>
+<div class=col><font color=#17D4FE>In<br/> Cargo</font></div>
+<div class=col><font color=#17D4FE>Buy/Sell Price</font></div>
+<div class=col><font color=#17D4FE>Sell</font></div>
+<div class=col><font color=#17D4FE>Buy</font></div>
+<div class=col><font color=#17D4FE>Submit</font></div>
+</section>
+</div>
+</div>
 	</div>
-
+	</div>
 
     </body>
 
