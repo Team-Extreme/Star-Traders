@@ -43,7 +43,7 @@
         
     }else{
         
-            $sql = "SELECT user_table.user_valid, user_table.active, univ_system.system_name, univ_planet.planet_name, univ_planet.planet_type,univ_planet.star_distance, univ_planet.planet_description, univ_planet.planet_habit FROM user_table, univ_system, univ_planet WHERE user_id='".$_SESSION['user_id']."' AND univ_system.system_id =user_table.user_location AND univ_planet.planet_id = user_table.user_location_planet";
+            $sql = "SELECT user_table.user_valid, user_table.active, univ_system.system_name, univ_planet.planet_name,univ_planet.planet_type,univ_planet.star_distance, univ_planet.planet_description, univ_planet.planet_habit FROM user_table, univ_system, univ_planet WHERE user_id='".$_SESSION['user_id']."' AND univ_system.system_id =user_table.user_location AND univ_planet.planet_id = user_table.user_location_planet";
 
 		    $result = $conn->query($sql);
 	
@@ -63,10 +63,10 @@
             echo $sql_array['star_distance'];
             echo "<br />";
             echo 'Inhabitation Status: ';
-			if ($rows['planet_habit'] == 1){
-			echo '<font color=#f44336>Inhabited</font>';
+			if ($sql_array['planet_habit'] == 1){
+			echo '<font color=#4CAF50>Inhabited</font>';
 			}
-			elseif ($rows['planet_habit'] == 0){
+			elseif ($sql_array['planet_habit'] == 0){
 			echo '<font color=#f44336>Uninhabited</font>';
 			}
 		}
