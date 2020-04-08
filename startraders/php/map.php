@@ -34,7 +34,7 @@
     </div>
 	<div class="rightstack"><div class="errmessage"><?php include'../process/message_check_process.php'?></div><div class="custom-popup" id="local_map"></div></div>
        <div class="transaction_left"><h1>Transactions</h1><?php require'../process/get_transactions.php'?></div>
-	   <div class="planetint"><h1>Location</h1><?php require'../process/get_location_info.php'?> <div class="internal_cont1">Interactions</div></div> 
+	   <div class="planetint"><h1>Location</h1><?php require'../process/get_location_info.php'?> <div class="internal_cont1"><h1>Interactions</h1></div></div> 
     <div class="cargoleft"><h1>Cargo</h1><?php require'../process/get_cargo.php'?></div> <div class="left-ui"><div class="internal_cont"><h1>USER</h1><?php require'../process/get_user.php'?></div><div class="internal_right_cont"><h1>SHIP</h1><?php require'../process/get_ship.php'?></div></div>
     <div class="center-ui">  </br>
        <h1>      &nbsp;MARKET <?php require'../process/get_user_location.php'?></h1></br>
