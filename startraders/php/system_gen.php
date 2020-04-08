@@ -17,6 +17,7 @@ set_time_limit(0);
 				);
 					//STAR CLASS,AVERAGE MASS(1=1Sun),TEMPERATURE MIN/TEMPERATURE MAX(KELVIN),AVERAGE RADIUS(1=1Sun),AVERAGE LUMINOSITY(1=1Sun)
 					$star_class = rand(0,6);
+					
 		
 		$star_mass_a=$star_array["$star_class"][1];
 		
@@ -77,13 +78,13 @@ set_time_limit(0);
 		
 		$system_security=rand(1,10);
 
-//END SYSTEM GENERATION
-echo $star_class_final;
-echo $star_mass_final;
-echo $star_temp_final;
-echo $star_radius_final;
-echo $star_lumo_final;
-echo "</br>";
+		//END SYSTEM GENERATION
+		echo $star_class_final;
+		echo $star_mass_final;
+		echo $star_temp_final;
+		echo $star_radius_final;
+		echo $star_lumo_final;
+		echo "</br>";
 
 
 			$sql = "INSERT INTO univ_star(system_id,star_name,star_x,star_y,star_class,star_mass,star_temperature,star_radius,star_lumo) VALUES ('$system_id','$system_name','$star_x','$star_y','$star_class_final','$star_mass_final','$star_temp_final','$star_radius_final','$star_lumo_final')";
@@ -115,8 +116,9 @@ echo "</br>";
             $star_distance = round($distance,2)/10;
             $star_distance = $star_distance/2;
             $planet_description= ''.$planet_name_final.' is '.$star_distance.' <br /> AU away from its star';
-            
-			$sql = "INSERT INTO univ_planet (system_id,planet_name,planet_x,planet_y,planet_description) VALUES ('$system_id','$planet_name_final','$planet_x','$planet_y','$planet_description')";
+            $random_habit=rand(0,1);
+			$random_type=rand(1,10);
+			$sql = "INSERT INTO univ_planet (system_id,planet_name,planet_type,planet_habit,planet_x,planet_y,star_distance,planet_description) VALUES ('$system_id','$planet_name_final','$random_type','$random_habit','$planet_x','$planet_y','$star_distance','$planet_description')";
             $conn->query($sql);
 
 }

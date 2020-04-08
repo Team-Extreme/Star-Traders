@@ -41,7 +41,7 @@
             echo '<br>';
             echo $rows['system_description'];
             echo '</p>';
-            echo '\'); ';
+			echo '\'); ';
 						}
                          /* var aries = xy(2609,1923);L.marker(aries,{icon: starIcon}).addTo(map).bindPopup('<p>Aries  ::  <a class="jumplink" href="../process/jump_system_process.php?system_id=1">JUMP</a><br>Jump Cost: 69<br>THIS IS A SYSTEM</p>');
                          The code below generates what you see about creating a variable for the map to display. These icons will be blue because they indicate systems the player may jump to.*/  
@@ -61,7 +61,8 @@
             echo ');';
 			echo 'L.marker(';
             echo $str;
-            echo ',{icon: starIcon}).addTo(map).bindPopup(\'';
+            echo ',{icon: starIcon})';
+			echo'.addTo(map).bindPopup(\'';
             echo '<p>';
             echo $rows['system_name'];
             echo '  ::  <a class="jumplink" href="../process/jump_system_process.php?system_id=';
@@ -84,7 +85,12 @@
             echo '<br>';
             echo $rows['system_description'];
             echo '</p>';
-            echo '\'); ';  
+            echo '\')';
+			echo '.addTo(map).bindTooltip("';
+			echo $str;
+			echo '"';
+            echo ",{permanent: true,direction: 'bottom'}";
+            echo ');';
 						}
 		}
 			echo 'map.setView';

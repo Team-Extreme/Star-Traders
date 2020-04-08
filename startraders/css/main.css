@@ -221,6 +221,7 @@ label{
     border: 3px solid #ffffff;
     width:50%;
     height: 50%;
+	  top: 9%;
 }
 
 a:link {
@@ -349,7 +350,7 @@ padding: 8px 0px 8px 8px;
   position: absolute;
   width: 31%;
   height: 250px;
-  left: 46%;
+  left: 44%;
   bottom: 3%;
   z-index: 2;
   background: url("../images/localmapback.png");
@@ -513,7 +514,7 @@ section .col {
 }
 .w3-border
 {border: 2px solid #ffffff;
-width:85%;
+width:75%;
 }
 
 .w3-grey
@@ -543,4 +544,41 @@ width:85%;
 	left: 3%;
   bottom: 575px;
 	
+}
+.planetint
+{
+     padding: 0px 0px 0px 3px;
+    margin: 0 auto;
+	  background: url("../images/localmapback.png");
+  background-size:100% auto;
+  background-size: cover;
+  border: 2px solid #ffffff;
+      font-size: 12px;
+    position:absolute;
+	   width: 20%;
+  height: 250px;
+	right: 3%;
+  bottom: 575px;
+	
+}
+
+.internal_cont1{
+	height:25%;
+    left: 1%;
+    padding:1%;
+    font-size: 12px;
+
+}
+	.glaxaxytradenews
+{	  background: url("../images/localmapback.png");
+  background-size:100% auto;
+  background-size: cover;
+  border: 2px solid #ffffff;
+	     padding: 0px 0px 0px 3px;
+    margin: 0 auto;
+      font-size: 12px;
+    position:absolute;
+	top:10%;
+    width:50%;
+    height: 6%;
 }

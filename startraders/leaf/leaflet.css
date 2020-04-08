@@ -564,17 +564,10 @@
 .leaflet-tooltip {
 	position: absolute;
 	padding: 3px;
-	background-color: #fff;
-	border: 1px solid #fff;
-	color: #222;
-	white-space: nowrap;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	pointer-events: none;
-	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
-    color: #ffcc00;
+
+    color: #ffffff;
+    font-family: spacemadness;
+  font-size:12px;
 }
 .leaflet-tooltip.leaflet-clickable {
 	cursor: pointer;
@@ -613,7 +606,7 @@
 	top: 0;
 	margin-top: -12px;
 	margin-left: -6px;
-	border-bottom-color: #fff;
+
 	}
 .leaflet-tooltip-left {
 	margin-left: -6px;
@@ -637,7 +630,15 @@
 	border-right-color: #fff;
 	}
 
+.cssclass {
+    background-image: url("../images/localmapback.png");
+    background-size:100% auto;
+    background-size: cover;
+    color: #ffffff;
+    font-family: spacemadness;
+  font-size:16px;
 
+  }
 .custom-popup .leaflet-popup-content-wrapper {
     background-image: url("../images/localmapback.png");
     background-size:100% auto;

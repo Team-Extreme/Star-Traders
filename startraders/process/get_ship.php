@@ -40,5 +40,6 @@ $calc_count = ( $sql_array['SUM(item_amount)'] / $ship_cargo_limit ) * 100;
 echo"</section>";
 echo "<div class=w3-border>";
 echo "<div class=w3-grey style=height:20px;width:".$calc_count."%></div>";
+echo	"</a>";
 echo "</div>";
 ?>
