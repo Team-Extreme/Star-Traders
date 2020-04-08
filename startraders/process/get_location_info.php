@@ -57,7 +57,13 @@
 			echo $sql_array['planet_name'];
 			echo '<br />';
             echo 'Planet Type:';
-            echo $sql_array['planet_type'];
+			$sql1 = "SELECT type_name,type_description from univ_planet_type where type_id='".$sql_array['planet_type']."'";
+		    $result1 = $conn->query($sql1);
+			$sql_array1 = $result1->fetch_array(MYSQLI_ASSOC);
+            echo $sql_array1['type_name'];
+			echo "<br />";
+			echo 'Planet Description:';
+			echo $sql_array1['type_description'];
 			echo "<br />";
 			echo 'Distance From Star: ';
             echo $sql_array['star_distance'];
