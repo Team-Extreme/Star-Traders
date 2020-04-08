@@ -106,6 +106,7 @@ CREATE TABLE IF NOT EXISTS `univ_planet` (
   `planet_x` int(3) DEFAULT NULL,
   `planet_y` int(3) DEFAULT NULL,
   `planet_z` int(3) DEFAULT NULL,
+  `star_distance` double(5,3) DEFAULT NULL,
   `planet_description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`planet_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=617 DEFAULT CHARSET=latin1;
