@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `univ_item` (
   `item_description` varchar(64) NOT NULL,
   `item_type` varchar(11) NOT NULL,
   `item_rarity` int(11) NOT NULL,
+  `item_base_price` int (3) NOT NULL,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
@@ -67,11 +68,11 @@ CREATE TABLE IF NOT EXISTS `univ_item` (
 --
 
 INSERT INTO `univ_item` (`item_id`, `item_name`, `item_description`, `item_type`, `item_rarity`) VALUES
-(1, 'Potatoes', 'What\'s tatters Precious,Boil\'em Mash\'em Stick\'em in a Stew!', 'Food', 1),
-(2, 'Hope', 'At Last We have it, Anything is possible!', 'Hope', 5),
-(3, 'Stink Bomb', 'Yuk!', 'Arms', 4),
-(6, 'Meth', 'Everybody Loves Meth!', 'Chemical', 3),
-(7, 'Unobtainium', 'Ehhhh Plot Vehicle', 'Ore', 2);
+(1, 'Potatoes', 'What\'s tatters Precious,Boil\'em Mash\'em Stick\'em in a Stew!', 'Food', 1, 5),
+(2, 'Hope', 'At Last We have it, Anything is possible!', 'Hope', 5, 300),
+(3, 'Stink Bomb', 'Yuk!', 'Arms', 4, 50),
+(6, 'Meth', 'Everybody Loves Meth!', 'Chemical', 3, 175),
+(7, 'Unobtainium', 'Ehhhh Plot Vehicle', 'Ore', 2, 800);
 
 -- --------------------------------------------------------
 
@@ -83,7 +84,6 @@ DROP TABLE IF EXISTS `univ_market`;
 CREATE TABLE IF NOT EXISTS `univ_market` (
   `market_id` int(11) NOT NULL,
   `market_item_id` int(11) NOT NULL,
-  `market_value` int(9) NOT NULL,
   `market_quantity` int(3) NOT NULL,
   KEY `market_id_idx` (`market_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
