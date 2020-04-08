@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `univ_planet_type` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `system_message`
+-- Dumping data for table `univ_planet_type`
 --
 
 INSERT INTO `univ_planet_type` (`type_id`, `type_name`, `type_description`) VALUES
