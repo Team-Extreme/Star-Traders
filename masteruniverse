@@ -25,12 +25,42 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `univ_planet_type`
+--
+
+DROP TABLE IF EXISTS `univ_planet_type`;
+CREATE TABLE IF NOT EXISTS `univ_planet_type` (
+  `type_id` int(2) NOT NULL AUTO_INCREMENT,
+  `type_name` varchar(32) NOT NULL,
+  `type_description` varchar(512) NOT NULL,
+  PRIMARY KEY (`type_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `system_message`
+--
+
+INSERT INTO `univ_planet_type` (`type_id`, `type_name`, `type_description`) VALUES
+(1, 'Carbon Planet', 'A theoretical terrestrial planet that could form if protoplanetary discs are carbon-rich and oxygen-poor.'),
+(2, 'City Planet', 'A hypothetical planet where all of its surface is urbanized.'),
+(3, 'Desert Planet', 'A theoretical terrestrial planet with very little water.'),
+(4, 'Gas Giant', 'A massive planet composed primarily of hydrogen and helium.'),
+(5, 'Ice Planet', 'A theoretical planet with an icy surface and consists of a global cryosphere.'),
+(6, 'Lava Planet', 'A theoretical terrestrial planet with a surface mostly or entirely covered by molten lava.'),
+(7, 'Ocean Planet', 'A theoretical planet which has a substantial fraction of its mass made of water.'),
+(8, 'Protoplanet', 'A large planetary embryo that originates within protoplanetary discs and has undergone internal melting to produce differentiated interiors. Protoplanets are believed to form out of kilometer-sized planetesimals that attract each other gravitationally and collide.'),
+(9, 'Silicate Planet', 'A terrestrial planet that is composed primarily of silicate rocks. All four inner planets in our Solar System are silicon-based.'),
+(10, 'Terrestrial Planet', 'An Earth-like planet.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `system_message`
 --
 
 DROP TABLE IF EXISTS `system_message`;
 CREATE TABLE IF NOT EXISTS `system_message` (
-  `message_id` int(11) NOT NULL AUTO_INCREMENT,
+  `message_id` int(1) NOT NULL AUTO_INCREMENT,
   `message_content` varchar(512) NOT NULL,
   `message_type` varchar(20) NOT NULL,
   PRIMARY KEY (`message_id`)
@@ -54,11 +84,11 @@ INSERT INTO `system_message` (`message_id`, `message_content`, `message_type`) V
 
 DROP TABLE IF EXISTS `univ_item`;
 CREATE TABLE IF NOT EXISTS `univ_item` (
-  `item_id` int(11) NOT NULL AUTO_INCREMENT,
+  `item_id` int(3) NOT NULL AUTO_INCREMENT,
   `item_name` varchar(64) NOT NULL,
   `item_description` varchar(64) NOT NULL,
   `item_type` varchar(11) NOT NULL,
-  `item_rarity` int(11) NOT NULL,
+  `item_rarity` int(2) NOT NULL,
   `item_base_price` int (3) NOT NULL,
   PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
@@ -82,9 +112,10 @@ INSERT INTO `univ_item` (`item_id`, `item_name`, `item_description`, `item_type`
 
 DROP TABLE IF EXISTS `univ_market`;
 CREATE TABLE IF NOT EXISTS `univ_market` (
-  `market_id` int(11) NOT NULL,
-  `market_item_id` int(11) NOT NULL,
+  `market_id` int(6) NOT NULL,
+  `market_item_id` int(3) NOT NULL,
   `market_quantity` int(3) NOT NULL,
+  `planet_id` int(4) NOT NULL,
   KEY `market_id_idx` (`market_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -96,11 +127,10 @@ CREATE TABLE IF NOT EXISTS `univ_market` (
 
 DROP TABLE IF EXISTS `univ_planet`;
 CREATE TABLE IF NOT EXISTS `univ_planet` (
-  `planet_id` int(11) NOT NULL AUTO_INCREMENT,
-  `system_id` int(11) DEFAULT NULL,
+  `planet_id` int(4) NOT NULL AUTO_INCREMENT,
+  `system_id` int(4) DEFAULT NULL,
   `planet_name` varchar(32) DEFAULT NULL,
-  `market_id` int(11) DEFAULT NULL,
-  `planet_type` varchar(32) DEFAULT NULL,
+  `planet_type` int(2) DEFAULT NULL,
   `planet_habit` int(1) DEFAULT NULL,
   `planet_security` int(3) DEFAULT NULL,
   `planet_x` int(3) DEFAULT NULL,
@@ -123,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `univ_planet` (
 
 DROP TABLE IF EXISTS `univ_system`;
 CREATE TABLE IF NOT EXISTS `univ_system` (
-  `system_id` int(11) NOT NULL,
+  `system_id` int(4) NOT NULL,
   `system_name` varchar(32) NOT NULL,
   `system_x` int(9) NOT NULL,
   `system_y` int(9) NOT NULL,
