@@ -582,3 +582,28 @@ width:75%;
     width:50%;
     height: 6%;
 }
+
+.marketbuysellbox {
+	width:100%;
+    font-family: spacemadness;
+    background: transparent;
+    border: 3px solid #ffffff;
+    color: #f2f2f2;
+    text-transform: uppercase;
+		padding: 3px 8px;
+}
+.submitmarket {
+	width:100%;
+    font-family: spacemadness;
+    background: transparent;
+    border: 3px solid #ffffff;
+    color: #f2f2f2;
+    text-transform: uppercase;
+	padding: 3px 8px;
+}
+
+section .colmarket {
+  display: table-cell;
+  	padding: 3px 2px;
+	  text-align: center;
+}
