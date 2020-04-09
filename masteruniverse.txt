@@ -266,22 +266,7 @@ CREATE TABLE IF NOT EXISTS `user_ship` (
 --
 
 INSERT INTO `user_ship` (`ship_id`, `user_id`, `ship_name`, `ship_type`, `ship_fuel`, `ship_cargo_id`, `ship_cargo_limit`, `ship_fame`, `ship_fuel_limit`, `ship_speed`, `ship_atk`, `ship_arm`) VALUES
-(1, 3, 'Enterprise', 'Punisher', 10000, 1, 20000, 4, 15000, 9, 9, 9),
-(2, 10, 'shipname', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(3, 11, 'iii', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(4, 12, 'asdfa', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(5, 13, 'PPP', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(6, 14, 'HHHHHH', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(7, 15, 'asdfas', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(8, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(9, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(10, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(11, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(12, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(13, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(14, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(15, 16, 'ffff', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9),
-(16, 24, 'hhhhhh', 'shiptype', 10000, 0, 3000, 15000, 0, 9, 9, 9);
+(1, 3, 'Enterprise', 'Punisher', 10000, 1, 20000, 4, 15000, 9, 9, 9);
 
 -- --------------------------------------------------------
 
@@ -304,7 +289,6 @@ CREATE TABLE IF NOT EXISTS `user_table` (
   `user_location_planet` int(5) DEFAULT NULL,
   `user_x` int(5) NOT NULL,
   `user_y` int(5) NOT NULL,
-  `ship_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
@@ -312,28 +296,8 @@ CREATE TABLE IF NOT EXISTS `user_table` (
 -- Dumping data for table `user_table`
 --
 
-INSERT INTO `user_table` (`user_id`, `username`, `password`, `email`, `last_session`, `log_time`, `active`, `last_action`, `user_valid`, `user_location`, `user_location_planet`, `user_x`, `user_y`, `ship_id`) VALUES
-(3, 'admin', 'adminpass', 'emai@email.com', '9g3f55t2kqhva6oent6shvm4k7', 1579885920, 'TRUE', 1579885920, 'TRUE', 68, 397, 3315, 1047, 11),
-(5, 'waps', 'woops', 'waps@waps.com', NULL, NULL, NULL, NULL, '1', 185, 1, 0, 0, 11),
-(6, 'admin', 'admin', 'admin@admin.com', '9g3f55t2kqhva6oent6shvm4k7', 1579885902, 'FALSE', 1579885902, '1', 153, 1, 0, 0, 11),
-(7, 'dogs', 'dogs', 'dogs@dogs.com', NULL, NULL, '1', NULL, '1', 222, 1, 0, 0, 11),
-(8, 'asdf', 'asdf', 'asfd@asdf.com', '0q32h3jc3dtb88hs5ijkj5d6v3', 1556621864, 'FALSE', 1556623577, 'TRUE', 67, 2546, 0, 0, 11),
-(9, 'hello', 'hello', 'EMAIL@email.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 188, 1, 0, 0, 11),
-(10, 'ii', 'iiii', 'iii@iii.i', NULL, NULL, 'TRUE', NULL, 'TRUE', 90, 1, 0, 0, 11),
-(11, 'asd', 'asd', 'EMAIL@email', NULL, NULL, 'TRUE', NULL, 'TRUE', 85, 1, 0, 0, 11),
-(12, 'hhh', 'hhh', 'EMAIL@hh.hh', NULL, NULL, 'TRUE', NULL, 'TRUE', 133, 1, 0, 0, 12),
-(13, 'ppp', 'ppp', 'as@email.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 105, 1, 0, 0, 13),
-(14, 'hhhh', 'hhhhh', 'email@hhhhh.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 224, 1, 0, 0, 14),
-(15, 'asdfasdf', 'asdfasdf', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 194, 1, 0, 0, 15),
-(16, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 102, 1, 0, 0, 16),
-(17, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 9, 1, 0, 0, 0),
-(18, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 109, 1, 0, 0, 0),
-(19, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 42, 1, 0, 0, 0),
-(20, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 70, 1, 0, 0, 0),
-(21, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 156, 1, 0, 0, 0),
-(22, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 201, 1, 0, 0, 0),
-(23, 'ffff', 'ffff', 'EMAIL@asd.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 204, 1, 0, 0, 0),
-(24, 'asdfasd', 'asdfasdf', 'EMAIL@email.com', NULL, NULL, 'TRUE', NULL, 'TRUE', 67, 1, 1532, 1262, 24);
+INSERT INTO `user_table` (`user_id`, `username`, `password`, `email`, `last_session`, `log_time`, `active`, `last_action`, `user_valid`, `user_location`, `user_location_planet`, `user_x`, `user_y`) VALUES
+(3, 'admin', 'adminpass', 'emai@email.com', '9g3f55t2kqhva6oent6shvm4k7', 1579885920, 'TRUE', 1579885920, 'TRUE', 68, 397, 3315, 1047);
 
 -- --------------------------------------------------------
 
