@@ -95,13 +95,12 @@ set_time_limit(0);
             $conn->query($sql);
 
 			echo "</br>";
-			$num_planet=1;
 			
             $number=rand(1,9);
             $num_planet=1;
-            
+
 			for ($n = 0; $n <= $number; $n++) {
-            
+
             $num_planet_name=$num_planet++;
             $planet_name = $system_name;
             $planet_name_final=$planet_name." ".$num_planet_name;
@@ -118,9 +117,25 @@ set_time_limit(0);
             $planet_description= ''.$planet_name_final.' is '.$star_distance.' <br /> AU away from its star';
             $random_habit=rand(0,1);
 			$random_type=rand(1,10);
+			
 			$sql = "INSERT INTO univ_planet (system_id,planet_name,planet_type,planet_habit,planet_x,planet_y,star_distance,planet_description) VALUES ('$system_id','$planet_name_final','$random_type','$random_habit','$planet_x','$planet_y','$star_distance','$planet_description')";
             $conn->query($sql);
+			
 
+			$market_number_items=rand(2,10);//decides how many individual items will be avaliable in the market.
+			for ($m = 0; $m <= $market_number_items; $m++){
+			
+			$sql = "SELECT MAX(planet_id) FROM univ_planet";
+			$result = $conn->query($sql);
+			$sql_array = $result->fetch_array(MYSQLI_ASSOC);
+			
+			$planet_id=$sql_array["MAX(planet_id)"];
+			$market_item_select=rand(1,3); //selects the item which has to be placed into the database.
+			$market_amount= rand(0,25000); //selects the amount of that item.
+			
+			$sql = "INSERT INTO univ_market (market_item_id,market_quantity,planet_id) VALUES ($market_item_select,$market_amount,'$planet_id')";
+            $conn->query($sql);
+			}
 }
 }
 
