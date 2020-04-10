@@ -74,7 +74,22 @@ INSERT INTO `system_message` (`message_id`, `message_content`, `message_type`) V
 (1, 'You Have Successfully Logged In!', 'alert success'),
 (2, 'You have Failed To Active Jump Drive!', 'alert'),
 (3, 'You have updated Your Skill!', 'alert info'),
-(4, 'Jump Complete! You successfully Travelled to Your DESTINATION.', 'alert success');
+(4, 'Jump Complete! You successfully Travelled to Your DESTINATION.', 'alert success'),
+(5, 'You cannot buy and sell at the same time.', 'alert info'),
+(6, 'You do not have enough money to complete this transaction.', 'alert info'),
+(7, 'The planet does not have enough stock to complete this transaction.', 'alert info'),
+(8, 'You do not have enough cargo space to complete this transaction.', 'alert info'),
+(9, 'Failed updating quanitity in cargo.', 'alert'),
+(10, 'Failed deleting item from market.', 'alert'),
+(11, 'Failed updating quantity in market.', 'alert'),
+(12, 'Failed inserting item into user cargo.', 'alert'),
+(13, 'Transaction completed successfully', 'alert success'),
+(14, 'Failed updating user money.', 'alert'),
+(15, 'You do not have enough of this item in cargo to complete this transaction.', 'alert info'),
+(16, 'Failed deleting item from cargo.', 'alert'),
+(17, 'Failed instering item into planet market.', 'alert'),
+(18, 'Failed to update ship fuel level.', 'alert'),
+(19, 'Failed to update transactions table.', 'alert');
 
 -- --------------------------------------------------------
 
@@ -289,6 +304,7 @@ CREATE TABLE IF NOT EXISTS `user_table` (
   `user_location_planet` int(5) DEFAULT NULL,
   `user_x` int(5) NOT NULL,
   `user_y` int(5) NOT NULL,
+  `user_money` int(7) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
@@ -296,8 +312,8 @@ CREATE TABLE IF NOT EXISTS `user_table` (
 -- Dumping data for table `user_table`
 --
 
-INSERT INTO `user_table` (`user_id`, `username`, `password`, `email`, `last_session`, `log_time`, `active`, `last_action`, `user_valid`, `user_location`, `user_location_planet`, `user_x`, `user_y`) VALUES
-(3, 'admin', 'adminpass', 'emai@email.com', '9g3f55t2kqhva6oent6shvm4k7', 1579885920, 'TRUE', 1579885920, 'TRUE', 68, 397, 3315, 1047);
+INSERT INTO `user_table` (`user_id`, `username`, `password`, `email`, `last_session`, `log_time`, `active`, `last_action`, `user_valid`, `user_location`, `user_location_planet`, `user_x`, `user_y`, `user_money`) VALUES
+(3, 'admin', 'adminpass', 'emai@email.com', '9g3f55t2kqhva6oent6shvm4k7', 1579885920, 'TRUE', 1579885920, 'TRUE', 68, 397, 3315, 1047, 50000);
 
 -- --------------------------------------------------------
 
@@ -316,13 +332,6 @@ CREATE TABLE IF NOT EXISTS `user_transactions` (
   `transaction_type` varchar(16) NOT NULL,
   PRIMARY KEY (`transaction_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user_transactions`
---
-
-INSERT INTO `user_transactions` (`transaction_id`, `amount`, `planet_location`, `plus_minus`, `user_id`, `system_location`, `transaction_type`) VALUES
-(1, 50000, 123, '-', 3, 24, 'Fuel Purchase');
 
 --
 -- Constraints for dumped tables

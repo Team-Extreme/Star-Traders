@@ -22,10 +22,17 @@
 		$system_location=$rows['system_location'];
               
         echo"<div class=row>"; 
+		
         $sql1 = "SELECT planet_name from univ_planet WHERE planet_id='$planet_location' and system_id='$system_location'";
 		$result1 = $conn->query($sql1);
 		$sql_array1 = $result1->fetch_array(MYSQLI_ASSOC);
         $planet_name=$sql_array1['planet_name'];
+		
+		$sql1 = "SELECT system_name from univ_system WHERE system_id='$system_location'";
+		$result1 = $conn->query($sql1);
+		$sql_array1 = $result1->fetch_array(MYSQLI_ASSOC);
+        $system_name=$sql_array1['system_name'];
+		
         echo "<div class = col>".$rows['transaction_id']."</div>";
                   if ($rows['plus_minus'] == '-')
 			{	echo "<div class = col><font color=#870000>-".$rows['amount']."</font></div>";
@@ -33,7 +40,13 @@
                         if ($rows['plus_minus'] == '+')
 			{	echo "<div class = col><font color=#1eff00>+".$rows['amount']."</font></div>";
 		}
-        echo "<div class = col>".$planet_name."</div>";
+		
+		if ($planet_location == 0){
+			echo "<div class = col>Star ".$system_name."</div>";
+		} else {
+			echo "<div class = col>".$planet_name."</div>";
+		}
+		
         echo "<div class = col>".$rows['transaction_type']."</div>";
 		echo "</div>";
 }
