@@ -24,7 +24,6 @@
 			echo'<div class="colmarket"><font color=#17D4FE>Stock</font></div>';
 			echo'<div class="colmarket"><font color=#17D4FE>Cargo</font></div>';
 			echo'<div class="colmarket"><font color=#17D4FE>Price to<br />FullTank</font></div>';
-			echo'<div class="colmarket"><font color=#17D4FE>Buy</font></div>';
 			echo'<div class="colmarket"><font color=#17D4FE>Submit</font></div>';
 			echo"</div>";
 			
@@ -45,9 +44,9 @@
 			echo $refuel_cost;
 			echo '</div>';
 			echo '<div class = "colmarket">';
-			echo '<form action = "process_fuel_purchase.php" method = "get">';
-			echo '<input class="marketbuysellbox" type = "text" id = "buy"> </div>';
-			echo '<div class = "colmarket"><input class="submitmarket" type = "submit" value = "submit"></form></div>';
+			echo '<form action = "process_fuel_purchase.php" method = "post">';
+			echo '<input type = "hidden" name = "refuel_cost" value = "'.$refuel_cost.'">';
+			echo '<input class="submitmarket" type = "submit" value = "fill tank"></form></div>';
 			echo '</div>';
 			
 		} else {
@@ -66,16 +65,26 @@
 			echo'<div class="colmarket"><font color=#17D4FE>Submit</font></div>';
 			echo"</div>";
 		
-			$sql = "SELECT univ_item.item_id, univ_item.item_name,univ_item.item_rarity, univ_item.item_base_price, univ_market.market_quantity, user_cargo.item_amount FROM univ_item, univ_market, user_cargo WHERE univ_market.market_item_id = univ_item.item_id AND univ_market.market_item_id = user_cargo.item_id AND univ_market.planet_id = ".$planet_id."";
+			$sql = "SELECT univ_item.item_id, univ_item.item_name,univ_item.item_rarity, univ_item.item_base_price, univ_market.market_quantity FROM univ_item, univ_market WHERE univ_market.market_item_id = univ_item.item_id AND univ_market.planet_id = ".$planet_id."";
 			$result = $conn->query($sql);
 			
 			while ($rows = $result->fetch_assoc()){
+				
 				$item_rarity = $rows['item_rarity'];
 				$item_id = $rows['item_id'];
 				$item_name = $rows['item_name'];
 				$item_price = $rows['item_base_price'];
 				$planet_stock = $rows['market_quantity'];
-				$user_stock = $rows['item_amount'];
+				
+				$sql1 = "SELECT user_cargo.item_amount FROM user_cargo WHERE user_cargo.item_id = ".$item_id." AND user_cargo.user_id = ".$_SESSION['user_id']."";
+				$result1 = $conn->query($sql1);
+				if ($result1->num_rows > 0){
+					$sql_array1 = $result1->fetch_array(MYSQLI_ASSOC);
+					$user_stock = $sql_array1['item_amount'];
+				} else{
+					$user_stock = 0;
+				}
+				
 				$price = get_purchase_sale_price($planet_stock, $item_price);
 				
 				echo '<div class="row">';
@@ -106,16 +115,14 @@
 				echo $price;
 				echo '</div>';
 				echo '<div class ="colmarket">';
-				echo '<form action = "process_purchase.php" method = "get">';
-				echo '<input type = "text" class="marketbuysellbox" id = "sell">';
-				echo '<input type = "hidden" id = "item_id" value = "';
-				echo $item_id;
-				echo '">';
-				echo '<input type = "hidden" id = "item_price" value = "';
-				echo $price;
-				echo '">';
+				echo '<form action = "process_purchase.php" method = "post">';
+				echo '<input type = "text" class="marketbuysellbox" name = "sell">';
+				echo '<input type = "hidden" name = "item_id" value = "'. $item_id.'">';
+				echo '<input type = "hidden" name = "item_price" value = "'.$price.'">';
+				echo '<input type = "hidden" name = "planet_stock" value = "'.$planet_stock.'">';
+				echo '<input type = "hidden" name = "planet_id" value = "'.$planet_id.'">';
 				echo '</div>';
-				echo '<div class = "colmarket"><input class="marketbuysellbox" type = "text" id = "buy"> </div>';
+				echo '<div class = "colmarket"><input class="marketbuysellbox" type = "text" name = "buy"> </div>';
 				echo '<div class = "colmarket"><input class="submitmarket" type = "submit" value = "submit"></form></div>';
 				echo '</div>';
 				

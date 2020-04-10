@@ -121,23 +121,41 @@ set_time_limit(0);
 			$sql = "INSERT INTO univ_planet (system_id,planet_name,planet_type,planet_habit,planet_x,planet_y,star_distance,planet_description) VALUES ('$system_id','$planet_name_final','$random_type','$random_habit','$planet_x','$planet_y','$star_distance','$planet_description')";
             $conn->query($sql);
 			
-
-			$market_number_items=rand(2,10);//decides how many individual items will be avaliable in the market.
-			for ($m = 0; $m <= $market_number_items; $m++){
-			
-			$sql = "SELECT MAX(planet_id) FROM univ_planet";
+			$sql = "SELECT MAX(item_id) FROM univ_item";
 			$result = $conn->query($sql);
 			$sql_array = $result->fetch_array(MYSQLI_ASSOC);
+			$num_items_available = $sql_array['MAX(item_id)'];
 			
-			$planet_id=$sql_array["MAX(planet_id)"];
-			$market_item_select=rand(1,3); //selects the item which has to be placed into the database.
-			$market_amount= rand(0,25000); //selects the amount of that item.
-			
-			$sql = "INSERT INTO univ_market (market_item_id,market_quantity,planet_id) VALUES ($market_item_select,$market_amount,'$planet_id')";
-            $conn->query($sql);
+			for ($i = 1; $i <= $num_items_available; $i++){
+				
+				$yes_or_no = rand(0, 1);
+				
+				if ($yes_or_no === 0) {
+					
+					//item will not be added to stock
+				
+				} elseif ($yes_or_no === 1){
+					
+					$sql = "SELECT MAX(planet_id) FROM univ_planet";
+					$result = $conn->query($sql);
+					$sql_array = $result->fetch_array(MYSQLI_ASSOC);
+					$planet_id=$sql_array["MAX(planet_id)"];
+					
+					$market_item_select = $i;
+					$market_amount = rand(0,25000); //selects the amount of that item.
+					
+					$sql = "INSERT INTO univ_market (market_item_id,market_quantity,planet_id) VALUES ($market_item_select,$market_amount,'$planet_id')";
+					$conn->query($sql);
+					
+				}
+				
 			}
-}
-}
 
-        $conn->close();
+
+		}
+	
+	}
+
+	$conn->close();
+
 ?>
