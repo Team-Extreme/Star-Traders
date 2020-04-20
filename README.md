@@ -6,7 +6,7 @@ Then head to php/system_gen to run a php populating script for the tables in the
 
 ------------------------
 
-please use ur own branch (LeeDev, MichaelDev, StruanDev, KirstieDev) to add your changes in
+please use ur own branch to add your changes in
 
 don't merge your own pull request! get someone else to look at your changes first
 
