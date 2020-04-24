@@ -89,19 +89,19 @@
 				
 				echo '<div class="row">';
 
-				if ($item_rarity == 1){
+				if ($item_rarity == 1 || $item_rarity == 2){
 					echo '<div class = "colmarket"><font color="#1eff00">'.$item_name.'</font></div>';
 				}
-                if ($item_rarity == 2){
+                if ($item_rarity == 3 || $item_rarity == 4){
 					echo '<div class = "colmarket"><font color="#0070dd">'.$item_name.'</font></div>';
 				}
-				if ($item_rarity == 3){
+				if ($item_rarity == 5 || $item_rarity == 6){
 					echo '<div class = "colmarket"><font color="#a335ee">'.$item_name.'</font></div>';
 				}
-		        if ($item_rarity == 4){
+		        if ($item_rarity == 7 || $item_rarity == 8){
 					echo '<div class = "colmarket"><font color="#ff8000">'.$item_name.'</font></div>';
 				}
-                if ($item_rarity == 5){
+                if ($item_rarity == 9 || $item_rarity == 10){
 					echo '<div class = "colmarket"><font color="#870000">'.$item_name.'</font></div>';
 				}
 
